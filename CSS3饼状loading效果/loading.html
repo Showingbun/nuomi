@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3饼状loading效果</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+    .main {
+    	width: 100px;
+    	height: 100px;
+    	/*实现水平垂直居中*/
+    	position: absolute;
+    	left:0;
+        right:0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    .ring {
+    	width: 70px;
+        height: 70px;
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        border: 2px solid red;
+        border-radius: 35px;
+        border-top-color: transparent;
+        -webkit-transform: rotate(-45deg);
+        -webkit-animation: ring 1s infinite linear;
+    }
+
+    .circle {
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        border: 20px solid red;
+        border-radius: 20px;
+        border-top-color: red;
+        border-left-color: red;
+        border-bottom-color: pink;
+        border-right-color: pink;
+        z-index: 1;
+        -webkit-transform: rotate(-45deg);
+        
+    }
+
+    .half-pink {
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        border: 20px solid pink;     
+        border-radius: 20px;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        z-index: 2;
+        -webkit-transform: rotate(-45deg);
+        -webkit-animation: half-pink 2s infinite linear;
+        
+    }
+
+    .half-red {
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        border: 20px solid red;     
+        border-radius: 20px;
+        border-left-color: transparent;
+        border-top-color: transparent;
+        z-index: 3;
+        -webkit-transform: rotate(-45deg);
+        -webkit-animation: half-red 2s infinite linear;
+    }
+
+    @-webkit-keyframes ring {
+        0% {
+            -webkit-transform: rotate(-45deg);
+        }
+        100% {
+            -webkit-transform: rotate(-405deg);
+        }
+       
+    }
+
+    @-webkit-keyframes half-pink {
+        0% {
+            -webkit-transform: rotate(-45deg);
+        }
+        25% {
+            -webkit-transform: rotate(-225deg);
+        }
+        50% {
+            -webkit-transform: rotate(-225deg);
+            z-index: 3;
+        }
+        75% {
+            -webkit-transform: rotate(-405deg);
+            
+        }
+        100% {
+            -webkit-transform: rotate(-405deg);
+            z-index: 2;
+        }
+    }
+
+     @-webkit-keyframes half-red {
+        0% {
+            -webkit-transform: rotate(-45deg);
+        }
+        25% {
+            -webkit-transform: rotate(-45deg);
+        }
+        50% {
+            -webkit-transform: rotate(-225deg);
+            z-index: 2;
+        }
+        75% {
+            -webkit-transform: rotate(-225deg);
+        }    
+        100% {
+            -webkit-transform: rotate(-405deg);
+            z-index: 3;
+        }
+    }
+
+    </style>
+</head>
+
+<body>
+	<div class="main">
+        <div class="circle"></div>
+		<div class="ring"></div>
+		<div class="half-pink"></div>
+		<div class="half-red"></div>
+	</div>
+</body>
+
+</html>
